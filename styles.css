@@ -1,0 +1,214 @@
+:root {
+  --bg: #e6e6e0;
+  --paper: #f6f6ef;
+  --bar: #ff6600;
+  --text: #000;
+  --muted: #828282;
+  --link: #000;
+  --visited: #551a8b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 10pt/1.4 Verdana, Geneva, sans-serif;
+}
+
+.wrap {
+  width: 85%;
+  max-width: 920px;
+  margin: 8px auto 24px;
+  background: var(--paper);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bar);
+  padding: 2px 4px;
+  font-size: 10pt;
+}
+
+.bar img {
+  width: 18px;
+  height: 18px;
+  object-fit: cover;
+  border: 1px solid #fff;
+  display: block;
+}
+
+.bar .brand {
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.bar nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  color: #000;
+}
+
+.bar nav a {
+  color: #000;
+  text-decoration: none;
+}
+
+.bar nav a:hover {
+  text-decoration: underline;
+}
+
+.bar nav .sep {
+  color: #000;
+  padding: 0 4px;
+}
+
+.bar .end {
+  margin-left: auto;
+  padding-right: 6px;
+}
+
+.bar .end a {
+  color: #000;
+  text-decoration: none;
+  font-size: 10pt;
+}
+
+.page {
+  padding: 12px 14px 28px;
+}
+
+a {
+  color: var(--link);
+}
+
+a:visited {
+  color: var(--visited);
+}
+
+.about {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.about img {
+  width: 82px;
+  height: 82px;
+  object-fit: cover;
+  border: 1px solid #d0d0c8;
+  flex-shrink: 0;
+}
+
+.about p {
+  margin: 0 0 8px;
+}
+
+.sub {
+  color: var(--muted);
+  font-size: 7pt;
+}
+
+.sub a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.sub a:hover {
+  text-decoration: underline;
+}
+
+ol.hn {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ol.hn > li {
+  display: grid;
+  grid-template-columns: 18px 12px 1fr;
+  column-gap: 4px;
+  margin: 0 0 6px;
+}
+
+ol.hn .rank {
+  color: var(--muted);
+  text-align: right;
+  padding-top: 1px;
+}
+
+ol.hn .votearrow {
+  width: 10px;
+  height: 10px;
+  margin-top: 4px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 7px solid #999;
+}
+
+ol.hn .title {
+  font-size: 10pt;
+  text-decoration: none;
+}
+
+ol.hn .title:visited {
+  color: var(--visited);
+}
+
+ol.hn .row {
+  grid-column: 3;
+}
+
+ol.hn .meta {
+  grid-column: 3;
+  color: var(--muted);
+  font-size: 7pt;
+  margin: 1px 0 0;
+}
+
+ol.hn .meta a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+ol.hn .meta a:hover {
+  text-decoration: underline;
+}
+
+h1.post {
+  font-size: 13pt;
+  font-weight: normal;
+  margin: 0 0 4px;
+}
+
+.article p {
+  font-size: 10pt;
+  max-width: 42em;
+  margin: 0 0 12px;
+}
+
+.footer {
+  color: var(--muted);
+  font-size: 7pt;
+  margin-top: 28px;
+  padding-top: 10px;
+  border-top: 1px solid #ff6600;
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    width: auto;
+    max-width: none;
+    margin: 0;
+  }
+}
