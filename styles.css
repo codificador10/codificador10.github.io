@@ -191,10 +191,19 @@ h1.post {
   margin: 0 0 4px;
 }
 
-.article p {
+.article p,
+.article ul {
   font-size: 10pt;
   max-width: 42em;
   margin: 0 0 12px;
+}
+
+.article ul {
+  padding-left: 1.3em;
+}
+
+.article li {
+  margin: 0.25em 0;
 }
 
 .footer {
