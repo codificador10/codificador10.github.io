@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>in stats | Ayush Raj</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="bar">
+        <img src="../img/portrait.png" alt="" />
+        <a class="brand" href="../index.html">Ayush Raj</a>
+        <nav>
+          <a href="../index.html">home</a>
+          <span class="sep">|</span>
+          <a href="../blog/">blog</a>
+          <span class="sep">|</span>
+          <a href="../work.html">work</a>
+        </nav>
+        <div class="end">
+          <a href="https://linkedin.com/in/ayushraj10">linkedin</a>
+        </div>
+      </header>
+
+      <div class="page article">
+        <h1 class="post">Invite clicks</h1>
+        <p>Total opens of <code>/in</code>: <b id="total">…</b></p>
+        <form id="lookup">
+          <label for="who">Look up a name from ?from=</label>
+          <input id="who" type="text" maxlength="32" />
+          <button type="submit">Look up</button>
+        </form>
+        <p class="sub" id="out"></p>
+        <p class="footer"><a href="./">in</a></p>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var NS = "ayushraj-co-in";
+        function get(key) {
+          return fetch(
+            "https://abacus.jasoncameron.dev/get/" + NS + "/" + encodeURIComponent(key)
+          ).then(function (r) {
+            return r.json();
+          });
+        }
+        get("invite")
+          .then(function (d) {
+            document.getElementById("total").textContent = d.value;
+          })
+          .catch(function () {
+            document.getElementById("total").textContent = "unavailable";
+          });
+        document.getElementById("lookup").addEventListener("submit", function (e) {
+          e.preventDefault();
+          var who = (document.getElementById("who").value || "")
+            .trim()
+            .toLowerCase()
+            .replace(/\s+/g, "-");
+          var out = document.getElementById("out");
+          if (!/^[a-z0-9_-]{2,32}$/.test(who)) {
+            out.textContent = "Use 2–32 letters, numbers, or dashes.";
+            return;
+          }
+          get("from-" + who)
+            .then(function (d) {
+              out.textContent = who + ": " + d.value + " click(s)";
+            })
+            .catch(function () {
+              out.textContent = "Could not look that up.";
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>

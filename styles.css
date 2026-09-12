@@ -206,6 +206,33 @@ h1.post {
   margin: 0.25em 0;
 }
 
+.article form {
+  max-width: 42em;
+  margin: 0 0 12px;
+}
+
+.article label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 7pt;
+}
+
+.article input[type="text"] {
+  font: 10pt Verdana, Geneva, sans-serif;
+  padding: 4px 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  width: 16em;
+  max-width: 100%;
+}
+
+.article button {
+  font: 10pt Verdana, Geneva, sans-serif;
+  margin-left: 6px;
+  padding: 4px 8px;
+}
+
 .footer {
   color: var(--muted);
   font-size: 7pt;
